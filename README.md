@@ -1,25 +1,23 @@
 # sibylhaus.com
 
-Official repository for **Sibylhaus** — a modern tarot studio offering intuitive card readings, reflective guidance, and soulful digital experiences for individuals and couples navigating relationships, decisions, and life's crossroads.
+Official repository for **sibylhaus** — a modern tarot studio offering intuitive card readings, reflective guidance, and soulful digital experiences for individuals navigating relationships, decisions, and life's crossroads.
 
 ---
 
 ## About Sibylhaus
 
-Sibylhaus blends traditional tarot symbolism with contemporary storytelling to create grounded, accessible readings free of gatekeeping or mystical pretense. Each session is designed to feel like a calm, neon-lit sanctuary where logic meets intuition.
+Sibylhaus blends traditional tarot symbolism with contemporary storytelling to create grounded, accessible readings free of gatekeeping or mystical pretense. Each session is designed to feel like a place where logic meets intuition.
 
 ### Core Offerings
 
 - **Single-card snapshots** for quick clarity and daily insight  
 - **Multi-card spreads** for deeper exploration of love, career, and pivotal moments  
 - **Audio and visual readings** delivered as digital experiences — perfect for repeat listening, journaling, and reflection  
-- **Couples readings** designed to explore communication patterns, shared narratives, and relational dynamics through tarot
 
 ### Brand Aesthetic
 
-- Dark, minimal interface with subtle neon accents (neon-on-black aesthetic)  
+- Dark, minimal interface with subtle accents
 - Clean typography and generous whitespace to keep focus on the cards and messages  
-- Visual language inspired by portals, constellations, and liminal spaces between the known and unknown  
 - Sleek, modern mystic vibe — no ornate or overly decorative design
 
 ---
@@ -27,7 +25,6 @@ Sibylhaus blends traditional tarot symbolism with contemporary storytelling to c
 ## Who It's For
 
 - **Intuitive, reflective people** who want more than generic horoscopes and quick content hits  
-- **Couples and individuals** exploring communication, patterns, and shared stories through tarot  
 - **Creatives, founders, and seekers** who use spiritual frameworks to support practical decision-making  
 - Anyone curious about tarot as a tool for self-reflection, not fortune-telling
 
@@ -38,9 +35,9 @@ Sibylhaus blends traditional tarot symbolism with contemporary storytelling to c
 - **Website:** [sibylhaus.com](https://sibylhaus.com)  
 - **Etsy Shop:** [sibylhaus.etsy.com](https://sibylhaus.etsy.com)  
 - **Instagram:** [@sibylhaus.co](https://instagram.com/sibylhaus.co)  
-- **Gumroad:** Digital products and audio/visual readings
+- **Gumroad:** Digital products
 
-The Sibylhaus ecosystem spans multiple platforms to meet clients where they are — from quick Etsy purchases to custom readings and behind-the-scenes content.
+The sibylhaus ecosystem spans multiple platforms to meet clients where they are — from quick Etsy purchases to custom readings and behind-the-scenes content.
 
 ---
 
@@ -52,12 +49,7 @@ The Sibylhaus ecosystem spans multiple platforms to meet clients where they are 
 - **Two-Card Reflection** — Compare two options, perspectives, or energies  
 - **Three-Card Spread** — Past/present/future or situation/action/outcome layouts  
 - **Behind-the-Scenes Content** — Process, card meanings, and reader insights  
-- **Audio/Visual Recordings** — Full tarot interpretation delivered as a digital file
-
-### Couples Tools
-
-- **Bonds Connect** — A couples app for shared reflection and communication  
-- Relationship-focused tarot spreads designed for two people to explore together
+- **Audio/Visual Recordings** — Full tarot interpretation delivered as a personalized digital web page
 
 ---
 
@@ -67,8 +59,8 @@ This site is built with:
 
 - **HTML/CSS/JavaScript** for clean, responsive front-end  
 - **GitHub Pages** for deployment and version control  
-- **Google AI Studio & Perplexity Labs** for AI-assisted content generation and tooling  
-- **Figma** for design prototyping and branding assets
+- **Google AI Studio & Perplexity Labs** for AI-assisted content generation and tooling
+
 
 ### Local Development
 
@@ -97,7 +89,7 @@ Structure your content in Markdown/HTML and customize as needed. Deploy via GitH
 
 ## Related Projects
 
-In addition to Sibylhaus, this portfolio includes:
+In addition to sibylhaus, this portfolio includes:
 
 - **Bonds Connect** — Couples app for reflection and connection  
 - **FairRaise** — Salary comparison tool  
