@@ -3,16 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sibylhaus | Relationship Check In for Jade & Carl</title>
+    <title>Sibylhaus | Gallery</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
-      :root {
-        --card-image-size: 300px;
-      }
       * {
         margin: 0;
         padding: 0;
@@ -33,6 +30,9 @@
         padding: 1.5rem 2rem;
         background-color: #000000;
         border-bottom: 1px solid #333;
+        position: sticky;
+        top: 0;
+        z-index: 100;
       }
 
       .logo {
@@ -55,566 +55,373 @@
         color: #d0d0d0;
         text-decoration: none;
         transition: color 0.3s;
+        text-transform: uppercase;
       }
 
       .nav a:hover {
         color: #ffffff;
       }
 
-      .hero {
-        background-color: #000000;
-        padding: 4rem 2rem;
+      .hero-section {
+        padding: 3rem 2rem;
         text-align: center;
-        min-height: 50vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        border-bottom: 1px solid #333;
       }
 
-      .hero h1 {
+      .hero-section h1 {
         font-family: "Bebas Neue", sans-serif;
-        font-size: 4rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        margin-bottom: 1rem;
-        line-height: 1.1;
-        text-transform: uppercase;
-      }
-
-      .hero h2 {
-        font-family: "Bebas Neue", sans-serif;
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-weight: 700;
         letter-spacing: 0.08em;
         margin-bottom: 1rem;
         text-transform: uppercase;
       }
 
-      .hero p {
-        font-size: 0.95rem;
+      .hero-section p {
+        font-size: 0.9rem;
         color: #d0d0d0;
-        margin-bottom: 2rem;
         max-width: 600px;
+        margin: 0 auto;
       }
 
-      .audio-player-container {
-        background-color: #000000;
+      .audio-section {
+        background-color: #0a0a0a;
         padding: 2rem;
         text-align: center;
-        margin-bottom: 2rem;
+        border-bottom: 1px solid #333;
       }
 
       .audio-label {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         letter-spacing: 0.08em;
         font-weight: 700;
         text-transform: uppercase;
-        margin-bottom: 1.5rem;
-        color: #d0d0d0;
+        margin-bottom: 1rem;
+        color: #999;
       }
 
       audio {
         width: 100%;
-        max-width: 400px;
+        max-width: 500px;
         height: 40px;
       }
 
-      .content-area {
-        background-color: #f8f8f8;
-        color: #1a1a1a;
-        padding: 3rem 2rem;
+      .video-section {
+        background-color: #000;
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid #333;
       }
 
-      .container {
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-
-      section {
-        margin-bottom: 3rem;
-      }
-
-      section h2 {
-        font-family: "Bebas Neue", sans-serif;
-        font-size: 1.8rem;
-        font-weight: 700;
+      .video-label {
+        font-size: 0.7rem;
         letter-spacing: 0.08em;
+        font-weight: 700;
         text-transform: uppercase;
         margin-bottom: 1rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 3px solid #000;
-        display: inline-block;
+        color: #999;
       }
 
-      .section-content {
-        margin-top: 1.5rem;
+      .video-embed-wrapper {
+        max-width: 800px;
+        margin: 0 auto 1.5rem auto;
+        aspect-ratio: 16 / 9;
       }
 
-      .card {
-        background-color: #ffffff;
-        padding: 1.5rem;
-        border-left: 4px solid #000;
-        margin-bottom: 1.5rem;
-      }
-
-      .card h3 {
-        font-family: "Bebas Neue", sans-serif;
-        font-size: 1.1rem;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        margin-bottom: 0.8rem;
-        color: #000;
-      }
-
-      .card p {
-        font-size: 0.9rem;
-        line-height: 1.7;
-        color: #333;
-        margin-bottom: 0.8rem;
-      }
-
-      .card p:last-child {
+      .video-embed-wrapper:last-of-type {
         margin-bottom: 0;
       }
 
-      .card-with-image {
-        background-color: #ffffff;
-        padding: 2rem;
-        border-left: 4px solid #000;
-        margin-bottom: 2rem;
+      .video-embed-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
       }
 
-      .card-with-image h3 {
-        font-family: "Bebas Neue", sans-serif;
-        font-size: 1.3rem;
-        font-weight: 700;
-        letter-spacing: 0.05em;
+      .images-section {
+        padding: 2.5rem 2rem;
+        background-color: #050505;
+        border-bottom: 1px solid #333;
+      }
+
+      .images-title {
+        text-align: center;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
+        color: #a0a0a0;
         margin-bottom: 1.5rem;
-        color: #000;
       }
 
-      .card-image {
-        width: var(--card-image-size);
-        height: var(--card-image-size);
+      .images-grid {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .images-grid img {
+        max-width: 100%;
+        height: auto;
         display: block;
-        margin-bottom: 1.5rem;
-        border-radius: 8px;
-        object-fit: contain;
-        background-color: transparent;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45),
-          0 2px 6px rgba(0, 0, 0, 0.25);
+        border: 1px solid #333;
       }
 
-      .card-text {
-        font-size: 0.9rem;
-        line-height: 1.7;
-        color: #333;
-        margin-bottom: 0.8rem;
+      .image-card {
+        flex: 1 1 200px;
+        max-width: 280px;
       }
 
-      .card-text:last-child {
-        margin-bottom: 0;
+      .links-section {
+        padding: 2.5rem 2rem;
+        background-color: #000;
+        border-bottom: 1px solid #333;
       }
 
-      .card-caption {
-        font-size: 0.85rem;
-        color: #666;
-        font-style: italic;
-        margin-top: 0.5rem;
-      }
-
-      .path-box {
-        background-color: #ffffff;
-        padding: 2rem;
-        border-top: 4px solid #000;
-        margin-bottom: 1.5rem;
-      }
-
-      .path-box h3 {
-        font-family: "Bebas Neue", sans-serif;
-        font-size: 1.3rem;
-        font-weight: 700;
-        letter-spacing: 0.05em;
+      .links-title {
+        text-align: center;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
-        margin-bottom: 1.2rem;
-        color: #000;
+        color: #a0a0a0;
+        margin-bottom: 1.5rem;
       }
 
-      .path-box ul {
+      .links-container {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .link-button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border: 1px solid #444;
+        color: #f5f5f5;
+        text-decoration: none;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background-color: #050505;
+        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .link-button:hover {
+        background-color: #ffffff;
+        color: #000000;
+        border-color: #ffffff;
+      }
+
+      .tips-section {
+        padding: 2.5rem 2rem;
+        background-color: #000;
+        border-top: 1px solid #333;
+      }
+
+      .tips-title {
+        text-align: center;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #a0a0a0;
+        margin-bottom: 1.5rem;
+      }
+
+      .tips-list {
+        max-width: 700px;
+        margin: 0 auto;
         list-style: none;
-        padding: 0;
+        font-size: 0.85rem;
+        color: #d0d0d0;
       }
 
-      .path-box li {
-        font-size: 0.9rem;
-        line-height: 1.7;
-        margin-bottom: 0.8rem;
-        padding-left: 1.5rem;
+      .tips-list li {
         position: relative;
-        color: #333;
+        padding-left: 1.5rem;
+        margin-bottom: 0.6rem;
       }
 
-      .path-box li:before {
-        content: "→";
+      .tips-list li::before {
+        content: "➜";
         position: absolute;
         left: 0;
-        color: #666;
-        font-weight: 700;
-      }
-
-      .highlight-box {
-        background-color: #f0f0f0;
-        border-left: 4px solid #000;
-        padding: 1.5rem;
-        margin: 1.5rem 0;
-        font-style: italic;
-      }
-
-      .highlight-box strong {
-        color: #000;
-        font-style: normal;
-      }
-
-      .cta-section {
-        text-align: center;
-        padding: 2rem;
-        background-color: #ffffff;
-        margin-top: 2rem;
-      }
-
-      .cta-section p {
-        font-size: 0.9rem;
-        color: #666;
-        margin-bottom: 1.5rem;
-      }
-
-      .cta-button {
-        display: inline-block;
-        background-color: #000;
-        color: #fff;
-        padding: 1rem 2rem;
-        font-family: "Inter", sans-serif;
-        font-size: 0.9rem;
-        font-weight: 600;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        text-decoration: none;
-        transition: all 0.3s ease;
-      }
-
-      .cta-button:hover {
-        background-color: #333;
+        top: 0;
+        color: #ffffff;
+        opacity: 0.7;
+        font-size: 0.8rem;
       }
 
       footer {
-        background-color: #000000;
+        padding: 1.5rem 2rem;
         text-align: center;
-        padding: 2rem;
-        border-top: 1px solid #333;
         font-size: 0.75rem;
-        color: #999;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-      }
-
-      footer p {
-        margin: 0.5rem 0;
-      }
-
-      footer .footer-brand {
-        color: #fff;
-        font-weight: 700;
+        color: #777;
+        background-color: #000;
       }
 
       @media (max-width: 768px) {
-        .hero h1 {
-          font-size: 2.5rem;
-        }
-
-        .hero h2 {
-          font-size: 1.5rem;
-        }
-
         header {
           flex-direction: column;
-          gap: 1rem;
+          align-items: flex-start;
+          gap: 0.75rem;
         }
 
-        .nav {
-          gap: 1rem;
-          font-size: 0.65rem;
+        .hero-section {
+          padding: 2.5rem 1.5rem;
         }
 
-        .content-area {
-          padding: 2rem 1rem;
-        }
-
-        section h2 {
-          font-size: 1.3rem;
-        }
-
-        .card-image {
-          width: calc(var(--card-image-size) * 0.9);
-          height: calc(var(--card-image-size) * 0.9);
+        .links-section,
+        .tips-section,
+        .images-section {
+          padding: 2rem 1.5rem;
         }
       }
     </style>
   </head>
   <body>
     <header>
-      <div class="logo">SIBYLHAUS</div>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="/">HOME</a>
-        <a href="#">CART (0)</a>
+      <div class="logo">sibylhaus</div>
+      <nav class="nav">
+        <a href="#">home</a>
+        <a href="#">readings</a>
+        <a href="#">about</a>
       </nav>
     </header>
 
-    <div class="hero">
-      <h1>RELATIONSHIP CHECK IN</h1>
-      <h2>JADE & CARL</h2>
-
-      <div class="audio-player-container">
-        <div class="audio-label">LISTEN TO YOUR READING</div>
-        <p style="font-size: 0.85rem; color: #d0d0d0; margin-bottom: 1.5rem">
-          Start by listening to the full reading, then explore the details below.
+    <main>
+      <!-- HERO -->
+      <section class="hero-section">
+        <h1>private gallery</h1>
+        <p>
+          A minimal archive space to listen back, follow your spread, and access
+          links connected to this reading.
         </p>
-        <audio controls preload="metadata">
-          <source src="audio/JADE.1.25.26.Relationship.mp3" type="audio/mpeg" />
+      </section>
+
+      <!-- AUDIO -->
+      <section class="audio-section">
+        <div class="audio-label">session audio</div>
+        <audio controls>
+          <source
+            src="audio/Jade.Phone-Consult.1.27.26.m4a"
+            type="audio/mp4"
+          />
           Your browser does not support the audio element.
         </audio>
-      </div>
-    </div>
+      </section>
 
-    <main class="content-area">
-      <div class="container">
-        <!-- OVERVIEW -->
-        <section>
-          <h2>OVERVIEW</h2>
-          <div class="section-content">
-            <div class="card">
-              <h3>About This Reading</h3>
-              <p>
-                Jade, you came through as <strong>The World</strong> and <strong>Faith</strong> (which signifies fidelity). With <strong>The World</strong>, I sense that you're ready to embark on a new cycle. It's as if this one is drawing to a close, and you're poised to transition into the next phase.
-              </p>
-              <p>
-                For Carlton, he is <strong>Judgment</strong>. He could be reminiscing about your relationship or evaluating himself as a partner.
-              </p>
-            </div>
+      <!-- VIDEOS (YouTube) -->
+      <section class="video-section">
+        <div class="video-label">session videos</div>
 
-            <!-- SIGNIFICATOR CARDS WITH IMAGE -->
-            <div class="card-with-image">
-              <h3>Your Significator Cards</h3>
-              <img
-                src="images/significator-cards.jpg"
-                alt="The World, Faith, and Judgment cards"
-                class="card-image"
-              />
-              <p class="card-caption">Jade's Cards: The World & Faith | Carl's Card: Judgment</p>
-            </div>
+        <div class="video-embed-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/_uvwh9x_MQ0"
+            title="YouTube video player 1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
 
-            <div class="card">
-              <h3>The Undercurrent Affecting Your Relationship</h3>
-              <p>
-                You might need to compromise, reach an agreement, or even just discuss something. The subject involves change, discussion, and reaching a consensus. It doesn't necessarily have to be a compromise, but rather an agreement on a particular matter.
-              </p>
-            </div>
+        <div class="video-embed-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/YDIHSLf9qzw"
+            title="YouTube video player 2"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
 
-            <div class="card">
-              <h3>What Cycle Are You Moving Through?</h3>
-              <p>
-                It's a period of time in which a decision needs to be made, but not all information necessary for making that decision is available.
-              </p>
-            </div>
-
-            <div class="card">
-              <h3>What Do You Each Need?</h3>
-              <p>
-                <strong>What Jade Needs:</strong> You need clarity, information, answers, to know.
-              </p>
-              <p>
-                <strong>What Carlton Needs:</strong> Carl might feel like he's being excessively scrutinized. It seems like he's carrying a lot of responsibilities right now and doesn't want to be the subject of speculation.
-              </p>
-            </div>
-
-            <!-- NOTEBOOK IMAGE -->
-            <div class="card-with-image">
-              <h3>The Torn Paper Sign</h3>
-              <img
-                src="images/notebook-questions.jpg"
-                alt="Handwritten notebook with torn paper"
-                class="card-image"
-              />
-              <p class="card-caption">The question paper where "will" tore off, leaving "Carlton rises to the occasion"</p>
-            </div>
+      <!-- IMAGES -->
+      <section class="images-section">
+        <div class="images-title">visual notes from this reading</div>
+        <div class="images-grid">
+          <div class="image-card">
+            <img src="images/helping.jpg" alt="helping spread" />
           </div>
-        </section>
-
-        <!-- THE BIG QUESTIONS -->
-        <section>
-          <h2>THE BIG QUESTIONS</h2>
-          <div class="section-content">
-            <div class="card">
-              <h3>Is He Ready or Aware of the Need to Rise to the Occasion?</h3>
-              <p>
-                Carlton wants to do it on his own terms. It's almost as if he's saying, "Don't tell me how to do it."
-              </p>
-            </div>
-
-            <div class="card">
-              <h3>Does He Feel the Same Sense of Urgency as Jade?</h3>
-              <p>
-                <strong>Yes.</strong> He's aware of the completion of a cycle and the subsequent transition to the next phase. He can sense it.
-              </p>
-            </div>
-
-            <div class="card">
-              <h3>Will He Rise to the Occasion?</h3>
-              <p>
-                He feels pressured, scrutinized, or under constant observation about something. He will comply, but he doesn't want to because he's being coerced into doing so.
-              </p>
-              <p>
-                Fours symbolize stability and security. However, I don't believe it will have an immediate impact.
-              </p>
-              
-              <div class="highlight-box">
-                <strong>Important Note:</strong> "Carlton rises to the occasion."
-              </div>
-            </div>
-
-            <!-- FOUR CARDS IMAGE -->
-            <div class="card-with-image">
-              <h3>The Fours - Stability & Security</h3>
-              <img
-                src="images/four-cards.jpg"
-                alt="Four of Cups, Four of Swords, and Four of Pentacles"
-                class="card-image"
-              />
-              <p class="card-caption">The Fours: Stability & Security</p>
-            </div>
-
-            <div class="card">
-              <h3>When Will He Rise to the Occasion?</h3>
-              <p>
-                The end of August or early September.
-              </p>
-              
-              <div class="highlight-box">
-                <strong>Watch for Eights:</strong> There's something about the number eight, specifically the number 88. Look for 8s as confirmation.
-              </div>
-            </div>
-
-            <!-- EIGHT CARDS IMAGE -->
-            <div class="card-with-image">
-              <h3>The Eights - Timing & Transformation</h3>
-              <img
-                src="images/eight-cards.jpg"
-                alt="Eight of Cups and Eight of Swords"
-                class="card-image"
-              />
-              <p class="card-caption">The Eights: Timing & Transformation</p>
-            </div>
-
-            <div class="card">
-              <h3>What Will Be the Catalyst That Makes Him Do So?</h3>
-              <p>
-                There will be significant events and turning points between now and August that will give Carl a "light bulb moment."
-              </p>
-            </div>
+          <div class="image-card">
+            <img src="images/2cupstower.jpg" alt="two of cups and tower" />
           </div>
-        </section>
-
-        <!-- INTERPRETATION -->
-        <section>
-          <h2>INTERPRETATION</h2>
-          <div class="section-content">
-            <div class="path-box">
-              <h3>Key Insights</h3>
-              <ul>
-                <li>Carlton is aware of the need to step up and feels the same urgency you do</li>
-                <li>He wants to rise to the occasion but on his own terms, without pressure or scrutiny</li>
-                <li>The timing points to end of August/early September</li>
-                <li>Watch for the number 8 and 88 as confirmation signs</li>
-                <li>Something significant will happen between now and then that creates a "light bulb moment"</li>
-                <li>The two fours indicate stability and security are building, even if it takes time</li>
-              </ul>
-            </div>
+          <div class="image-card">
+            <img src="images/itsdarkinhere.jpg" alt="it's dark in here page" />
           </div>
-        </section>
-
-        <!-- TRAJECTORY -->
-        <section>
-          <h2>TRAJECTORY</h2>
-          <div class="section-content">
-            <div class="card">
-              <h3>The Trajectory of Your Relationship</h3>
-              <p>
-                We have a <strong>King of Cups</strong> and a <strong>Knight of Cups</strong>. Cups symbolize emotions, feelings, love, and similar concepts.
-              </p>
-            </div>
-
-            <div class="card">
-              <h3>Oracle Guidance</h3>
-              <p>
-                <strong>1. "This is Okay Too"</strong> – This is about relaxing a bit, being less critical, and accepting the present moment without demanding anything.
-              </p>
-              <p>
-                <strong>2. Earth (Upside Down)</strong> – Consistent with the first card, it emphasizes the importance of being present and enjoying the moment, rather than dwelling on planning or being overly concerned about being prepared.
-              </p>
-              <p>
-                <strong>3. "Follow This String in the Fog"</strong> – <strong>You're almost there. You're on the home stretch.</strong>
-              </p>
-              
-              <div class="highlight-box">
-                <strong>Bottom Line:</strong> Trust the process, loosen up, stay present, and know you're almost there.
-              </div>
-            </div>
+          <div class="image-card">
+            <img
+              src="images/foxbouquethouse.jpg"
+              alt="fox bouquet house spread"
+            />
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- READING INSIGHTS -->
-        <section>
-          <h2>READING INSIGHTS</h2>
-          <div class="section-content">
-            <div class="card">
-              <h3>Overall Themes</h3>
-              <p>
-                <strong>Strong Four Energy:</strong> The repeated fours emphasize stability, security, and a foundation being built.
-              </p>
-              <p>
-                <strong>Emotional Alignment:</strong> The King and Knight of Cups show you're both in an emotional space and in motion, albeit fluid.
-              </p>
-              <p>
-                <strong>The Torn Paper Sign:</strong> "Carlton rises to the occasion" appearing when "will" tore off is a powerful affirmation.
-              </p>
-              <p>
-                <strong>Overall Message:</strong> Carlton will rise to the occasion, but he needs to do it in his own way and time. Stay present, release control, and trust you're on the home stretch.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- CTA -->
-        <div class="cta-section">
-          <p>Want deeper insight into your relationship?</p>
+      <!-- LINKS -->
+      <section class="links-section">
+        <div class="links-title">links from this reading</div>
+        <div class="links-container">
           <a
-            href="https://www.etsy.com/shop/Sibylhaus"
-            class="cta-button"
+            class="link-button"
+            href="https://sibylhaus.com"
             target="_blank"
             rel="noopener noreferrer"
-            >Book Another Reading</a
           >
+            visit sibylhaus
+          </a>
+          <a
+            class="link-button"
+            href="https://your-booking-link-here"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            book another session
+          </a>
+          <a
+            class="link-button"
+            href="https://your-resource-link-here"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            referenced resource
+          </a>
         </div>
-      </div>
+      </section>
+
+      <!-- TIPS -->
+      <section class="tips-section">
+        <div class="tips-title">tips for talking to ai about relationships</div>
+        <ul class="tips-list">
+          <li>
+            You are a psychologist with an expertise in relationships. Psychologically assess the 
+            situation. Find the undercurrent of actions that is not readily known from the surface."
+          </li>
+          <li>
+            Share what you have already decided or tried, so the AI does not keep returning to steps
+            you have moved past.
+          </li>
+          <li>
+            Ask for multiple angles (emotional, practical, spiritual, communication‑focused) rather
+            than a single “yes/no” prediction.
+          </li>
+          <li>
+            Use questions like “what might I be overlooking?” or “what would be a kind next step?”
+            to keep the focus on your agency.00
+          </li>
+          <li>
+            "Be fully unbiased. Consider everyone involveds perspective."
+          </li>
+        </ul>
+      </section>
     </main>
 
     <footer>
-      <p><span class="footer-brand">SIBYLHAUS</span></p>
-      <p>✦ Tarot • Oracle • Spiritual Guidance ✦</p>
-      <p style="margin-top: 1rem;">For entertainment purposes. Always trust your intuition.</p>
-      <p>&copy; 2026 Sibylhaus. Private reading for Jade & Carl.</p>
+      &copy; 2026 Sibylhaus. Private gallery for Jade.
     </footer>
   </body>
-</html>
+</html>0
