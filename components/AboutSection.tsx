@@ -28,7 +28,7 @@ export const AboutSection: React.FC = () => {
         {/* Decorative Bear Sticker - Now properly anchored to the white section */}
         <div className="absolute -bottom-12 -left-8 md:left-0 z-0 pointer-events-auto">
            <img 
-              src="./public/images/bearasset.jpg" 
+              src="/public/images/bearasset.jpg" 
               alt="Guardian Bear" 
               className="w-48 md:w-80 h-auto object-contain
                          filter grayscale contrast-[1.4] brightness-90
