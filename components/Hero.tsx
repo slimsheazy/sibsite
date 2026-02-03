@@ -5,11 +5,11 @@ export const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-sibyl-dark flex flex-col justify-center pt-20">
       
-      {/* Decorative Flower Sticker */}
+      {/* Decorative Fish Sticker */}
       <div className="absolute top-[15%] right-[5%] z-30 pointer-events-auto">
          <img 
-            src="https://raw.githubusercontent.com/slimsheazy/sh/12296d68dd3863f40b85ce72e2e946e37a11f306/assets/images/flowerasset.jpg" 
-            alt="Mystical Flower" 
+            src="./images/fishasset.jpg" 
+            alt="Mystical Fish" 
             className="w-24 md:w-40 h-auto object-contain rotate-12 drop-shadow-2xl
                        filter grayscale contrast-[1.2] brightness-90
                        transition-all duration-700 ease-out cursor-help
