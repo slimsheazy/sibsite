@@ -28,7 +28,7 @@ export const AboutSection: React.FC = () => {
         {/* Decorative Bear Sticker - Now properly anchored to the white section */}
         <div className="absolute -bottom-12 -left-8 md:left-0 z-0 pointer-events-auto">
            <img 
-              src="https://raw.githubusercontent.com/slimsheazy/sh/12296d68dd3863f40b85ce72e2e946e37a11f306/assets/images/bearasset.jpg" 
+              src="./images/bearasset.jpg" 
               alt="Guardian Bear" 
               className="w-48 md:w-80 h-auto object-contain
                          filter grayscale contrast-[1.4] brightness-90
@@ -66,7 +66,7 @@ export const AboutSection: React.FC = () => {
                     <div>
                         <h4 className="font-display font-bold text-xl uppercase mb-4 border-b-2 border-black pb-2">Method</h4>
                         <p className="font-sans text-black/80 leading-relaxed">
-                            Tarot, intuition, and real-time vibes to bring clarity to the chaos. 100% confidential and raw.
+                            0100% confidential and raw.
                         </p>
                     </div>
                 </div>
