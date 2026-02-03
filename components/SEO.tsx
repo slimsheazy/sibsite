@@ -5,7 +5,7 @@ export const SEO: React.FC = () => {
   useEffect(() => {
     const optimizeSEO = async () => {
       // In a real app, this context would come from the current route/page content
-      const context = "Homepage of Sibylhaus, a high-end Tarot and Divination shop featuring intuitive audio readings, energy checks, and relationship insights.";
+      const context = "homepage of sibylhaus.";
       
       try {
         const seoData = await generateSEOContent(context);
