@@ -8,7 +8,7 @@ export const Hero: React.FC = () => {
       {/* Decorative Fish Sticker */}
       <div className="absolute top-[15%] right-[5%] z-30 pointer-events-auto">
          <img 
-            src="./public/images/fishasset.jpg" 
+            src="/public/images/fishasset.jpg" 
             alt="Mystical Fish" 
             className="w-24 md:w-40 h-auto object-contain rotate-12 drop-shadow-2xl
                        filter grayscale contrast-[1.2] brightness-90
