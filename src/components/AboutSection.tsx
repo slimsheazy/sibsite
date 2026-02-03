@@ -53,20 +53,20 @@ export const AboutSection: React.FC = () => {
             </div>
             <div className="lg:col-span-7 lg:pl-12 pt-4">
                 <p className="font-sans font-medium text-xl md:text-2xl leading-relaxed text-black mb-12">
-                    "Hi, I'm Shea. I tell you what spirit shows me, even when it surprises us both. My readings are honest, thorough, and sometimes I'm just as shook as you are by what comes through. Real guidance for real life. No sugarcoating (sorry 🫡)"
+                    "Hi, I'm Shea. I tell you what spirit shows me, even when it surprises us both. My readings are honest, thorough, and sometimes I'm just as shocked as you are by what comes through. Real guidance for real life. No sugarcoating (sorry 🫡)"
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div>
                         <h4 className="font-display font-bold text-xl uppercase mb-4 border-b-2 border-black pb-2">Philosophy</h4>
                         <p className="font-sans text-black/80 leading-relaxed">
-                            I spot the patterns. You handle the outcomes.
+                            Real answers, no runaround.
                         </p>
                     </div>
                     <div>
                         <h4 className="font-display font-bold text-xl uppercase mb-4 border-b-2 border-black pb-2">Method</h4>
                         <p className="font-sans text-black/80 leading-relaxed">
-                            0100% confidential and raw.
+                            Spirit shows me the story. I tell you straight. You write the ending.
                         </p>
                     </div>
                 </div>
