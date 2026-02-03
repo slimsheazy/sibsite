@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sibylhaus | Gallery</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        line-height: 1.6;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background-color: #000000;
+        border-bottom: 1px solid #333;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #ffffff;
+      }
+
+      .nav {
+        display: flex;
+        gap: 2rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+      }
+
+      .nav a {
+        color: #d0d0d0;
+        text-decoration: none;
+        transition: color 0.3s;
+        text-transform: uppercase;
+      }
+
+      .nav a:hover {
+        color: #ffffff;
+      }
+
+      .hero-section {
+        padding: 3rem 2rem;
+        text-align: center;
+        border-bottom: 1px solid #333;
+      }
+
+      .hero-section h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .hero-section p {
+        font-size: 0.9rem;
+        color: #d0d0d0;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .audio-section {
+        background-color: #0a0a0a;
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid #333;
+      }
+
+      .audio-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        color: #999;
+      }
+
+      audio {
+        width: 100%;
+        max-width: 500px;
+        height: 40px;
+      }
+
+      .video-section {
+        background-color: #000;
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid #333;
+      }
+
+      .video-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        color: #999;
+      }
+
+      .video-embed-wrapper {
+        max-width: 800px;
+        margin: 0 auto 1.5rem auto;
+        aspect-ratio: 16 / 9;
+      }
+
+      .video-embed-wrapper:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .video-embed-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .images-section {
+        padding: 2.5rem 2rem;
+        background-color: #050505;
+        border-bottom: 1px solid #333;
+      }
+
+      .images-title {
+        text-align: center;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #a0a0a0;
+        margin-bottom: 1.5rem;
+      }
+
+      .images-grid {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .images-grid img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid #333;
+      }
+
+      .image-card {
+        flex: 1 1 200px;
+        max-width: 280px;
+      }
+
+      .links-section {
+        padding: 2.5rem 2rem;
+        background-color: #000;
+        border-bottom: 1px solid #333;
+      }
+
+      .links-title {
+        text-align: center;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #a0a0a0;
+        margin-bottom: 1.5rem;
+      }
+
+      .links-container {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .link-button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border: 1px solid #444;
+        color: #f5f5f5;
+        text-decoration: none;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background-color: #050505;
+        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .link-button:hover {
+        background-color: #ffffff;
+        color: #000000;
+        border-color: #ffffff;
+      }
+
+      .tips-section {
+        padding: 2.5rem 2rem;
+        background-color: #000;
+        border-top: 1px solid #333;
+      }
+
+      .tips-title {
+        text-align: center;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #a0a0a0;
+        margin-bottom: 1.5rem;
+      }
+
+      .tips-list {
+        max-width: 700px;
+        margin: 0 auto;
+        list-style: none;
+        font-size: 0.85rem;
+        color: #d0d0d0;
+      }
+
+      .tips-list li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .tips-list li::before {
+        content: "➜";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #ffffff;
+        opacity: 0.7;
+        font-size: 0.8rem;
+      }
+
+      footer {
+        padding: 1.5rem 2rem;
+        text-align: center;
+        font-size: 0.75rem;
+        color: #777;
+        background-color: #000;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.75rem;
+        }
+
+        .hero-section {
+          padding: 2.5rem 1.5rem;
+        }
+
+        .links-section,
+        .tips-section,
+        .images-section {
+          padding: 2rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">sibylhaus</div>
+      <nav class="nav">
+        <a href="#">home</a>
+        <a href="#">readings</a>
+        <a href="#">about</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero-section">
+        <h1>private gallery</h1>
+        <p>
+          A minimal archive space to listen back, follow your spread, and access
+          links connected to this reading.
+        </p>
+      </section>
+
+      <!-- AUDIO -->
+      <section class="audio-section">
+        <div class="audio-label">session audio</div>
+        <audio controls>
+          <source
+            src="audio/Jade.Phone-Consult.1.27.26.m4a"
+            type="audio/mp4"
+          />
+          Your browser does not support the audio element.
+        </audio>
+      </section>
+
+      <!-- VIDEOS (YouTube) -->
+      <section class="video-section">
+        <div class="video-label">session videos</div>
+
+        <div class="video-embed-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/_uvwh9x_MQ0"
+            title="YouTube video player 1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="video-embed-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/YDIHSLf9qzw"
+            title="YouTube video player 2"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- IMAGES -->
+      <section class="images-section">
+        <div class="images-title">visual notes from this reading</div>
+        <div class="images-grid">
+          <div class="image-card">
+            <img src="images/helping.jpg" alt="helping poem" />
+          </div>
+          <div class="image-card">
+            <img src="images/2cupstower.jpg" alt="two of cups and tower" />
+          </div>
+          <div class="image-card">
+            <img src="images/itsdarkinhere.jpg" alt="it's dark in here page" />
+          </div>
+          <div class="image-card">
+            <img
+              src="images/foxbouquethouse.jpg"
+              alt="fox bouquet house lenormand"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- LINKS -->
+      <section class="links-section">
+        <div class="links-title">links from this reading</div>
+        <div class="links-container">
+          <a
+            class="link-button"
+            href="https://sibylhaus.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            visit sibylhaus
+          </a>
+          <a
+            class="link-button"
+            href="https://sibylhaus.etsy.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            book another session
+          </a>
+          <a
+            class="link-button"
+            href="https://www.gottman.com/blog/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            referenced resource
+          </a>
+        </div>
+      </section>
+
+      <!-- TIPS -->
+      <section class="tips-section">
+        <div class="tips-title">tips for talking to ai about relationships</div>
+        <ul class="tips-list">
+          <li>
+            "You are a psychologist specializing in relationships. Assess the situation from a 
+            psychological perspective and identify the underlying currents in their words or 
+            actions that aren’t immediately apparent on the surface."
+          </li>
+          <li>
+            Share what you have already decided or tried, so the AI does not keep returning to steps
+            you have moved past.
+          </li>
+          <li>
+            Ask for multiple angles (emotional, practical, spiritual, communication‑focused) rather
+            than a single “yes/no” prediction.
+          </li>
+          <li>
+            Use questions like “what might I be overlooking?” or “what would be a kind next step?”
+            to keep the focus on your agency.
+          </li>
+          <li>
+            "Be fully unbiased. Consider everyone involveds perspective."
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2026 Sibylhaus. Private gallery for Jade.
+    </footer>
+  </body>
+</html>0
