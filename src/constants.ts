@@ -4,39 +4,39 @@ export const PRODUCTS: Product[] = [
   // --- Featured Items (Have Images) ---
   {
     id: '9',
-    title: 'Mental Fog Assessment',
-    price: '$17.99',
+    title: 'How Others See You'',
+    price: '$30.00',
     category: 'General',
-    image: 'https://i.imgur.com/R6OZkxz.jpeg',
-    description: 'Intuitive Clarity Audio Tarot. Cut through the noise and identify exactly what is blocking your mental clarity right now.',
-    etsyUrl: 'https://www.etsy.com/listing/4316384783/'
+    image: 'https://i.etsystatic.com/18183127/r/il/a376f0/7605922552/il_1140xN.7605922552_dqg6.jpg',
+    description: 'How Others See You | Delivered within 8 Hours | Audio + Personalized Interactive Webpage.',
+    etsyUrl: 'https://sibylhaus.etsy.com/listing/4441736392/'
   },
   {
     id: '11',
-    title: 'Energy Drain Tarot Reading',
-    price: '$15.99',
+    title: 'Strategic Pivot',
+    price: '$30.00',
     category: 'General',
-    image: 'https://i.imgur.com/GJ3u7cH.jpeg',
-    description: 'Why so tired? Identifying energy leaks in your life and how to plug them. Audio + PDF.',
-    etsyUrl: 'https://www.etsy.com/listing/4324587264/'
+    image: 'https://i.etsystatic.com/18183127/r/il/8aff4c/7604591492/il_794xN.7604591492_o7rv.jpg',
+    description: 'Strategic Pivot | Delivered within Hours | Audio + Personalized Interactive Web Page.',
+    etsyUrl: 'https://sibylhaus.etsy.com/listing/4441477118/'
   },
   {
     id: '12',
-    title: 'Audio Tarot Reading: Next Move',
-    price: '$22.00',
-    category: 'Timeline',
-    image: 'https://i.imgur.com/6UI9KR1.jpeg',
-    description: 'What\'s your next move? Strategic advice from the cards on your best path forward in career or personal life.',
-    etsyUrl: 'https://www.etsy.com/listing/4324257718/'
+    title: 'Tarot Phone Consultation',
+    price: '$50.00',
+    category: 'Live',
+    image: 'https://i.etsystatic.com/18183127/r/il/2fa359/7456062941/il_794xN.7456062941_e1nq.jpg',
+    description: 'Tarot Phone Consultation | Live Tarot Reading.',
+    etsyUrl: 'https://sibylhaus.etsy.com/listing/4406770298/'
   },
   {
     id: '13',
-    title: 'Audio Tarot Reading: Energy Check',
-    price: '$18.99',
-    category: 'General',
-    image: 'https://i.imgur.com/2lnZu8U.jpeg',
-    description: 'What\'s fueling you? What\'s draining you? A comprehensive audit of your current energetic state.',
-    etsyUrl: 'https://www.etsy.com/listing/4322635125/'
+    title: 'The Quickie',
+    price: '$7.00',
+    category: 'Mini',
+    image: 'https://i.etsystatic.com/18183127/r/il/946ede/7665070555/il_794xN.7665070555_eex6.jpg',
+    description: 'Quick One Card Intuitive Reading | Delivered within Hours | Audio + Personalized Web Dashboard.',
+    etsyUrl: 'https://sibylhaus.etsy.com/listing/4443421416/'
   },
   {
     id: '15',
