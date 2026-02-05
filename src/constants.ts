@@ -4,7 +4,7 @@ export const PRODUCTS: Product[] = [
   // --- Featured Items (Have Images) ---
   {
     id: '9',
-    title: 'How Others See You'',
+    title: 'How Others See You',
     price: '$30.00',
     category: 'General',
     image: 'https://i.etsystatic.com/18183127/r/il/a376f0/7605922552/il_1140xN.7605922552_dqg6.jpg',
