@@ -1,43 +1,57 @@
-import React, { useEffect } from 'react';
-import { generateSEOContent } from '../services/geminiService';
+import { useEffect } from 'react';
 
-export const SEO: React.FC = () => {
+interface SEOProps {
+  title?: string;
+  description?: string;
+  keywords?: string;
+}
+
+export default function SEO({ 
+  title = 'Sibylhaus | Intuitive Tarot Readings & Spiritual Guidance',
+  description = 'No sugarcoating. Real tarot readings for real life. Get honest, intuitive guidance on love, career, and life decisions. Audio readings with personalized dashboards.',
+  keywords = 'tarot reading, intuitive reading, spiritual guidance, tarot cards, love reading, career reading, oracle cards, psychic reading, life decisions, tarot consultation'
+}: SEOProps) {
   useEffect(() => {
-    const optimizeSEO = async () => {
-      // In a real app, this context would come from the current route/page content
-      const context = "homepage of sibylhaus.";
-      
-      try {
-        const seoData = await generateSEOContent(context);
-        
-        document.title = seoData.title;
-        
-        // Update Meta Description
-        let metaDesc = document.querySelector("meta[name='description']");
-        if (!metaDesc) {
-          metaDesc = document.createElement('meta');
-          metaDesc.setAttribute('name', 'description');
-          document.head.appendChild(metaDesc);
-        }
-        metaDesc.setAttribute('content', seoData.description);
-
-        // Update Keywords
-        let metaKeywords = document.querySelector("meta[name='keywords']");
-        if (!metaKeywords) {
-          metaKeywords = document.createElement('meta');
-          metaKeywords.setAttribute('name', 'keywords');
-          document.head.appendChild(metaKeywords);
-        }
-        metaKeywords.setAttribute('content', seoData.keywords.join(', '));
-        
-        console.log("SEO Optimized by Gemini:", seoData);
-      } catch (e) {
-        console.warn("SEO optimization skipped");
+    // Set page title
+    document.title = title;
+    
+    // Set or update meta description
+    let descMeta = document.querySelector('meta[name="description"]');
+    if (!descMeta) {
+      descMeta = document.createElement('meta');
+      descMeta.name = 'description';
+      document.head.appendChild(descMeta);
+    }
+    descMeta.setAttribute('content', description);
+    
+    // Set or update keywords
+    let keywordsMeta = document.querySelector('meta[name="keywords"]');
+    if (!keywordsMeta) {
+      keywordsMeta = document.createElement('meta');
+      keywordsMeta.name = 'keywords';
+      document.head.appendChild(keywordsMeta);
+    }
+    keywordsMeta.setAttribute('content', keywords);
+    
+    // Open Graph tags
+    const ogTags = [
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: description },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://sibylhaus.com' },
+    ];
+    
+    ogTags.forEach(({ property, content }) => {
+      let tag = document.querySelector(`meta[property="${property}"]`);
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute('property', property);
+        document.head.appendChild(tag);
       }
-    };
-
-    optimizeSEO();
-  }, []);
-
+      tag.setAttribute('content', content);
+    });
+    
+  }, [title, description, keywords]);
+  
   return null;
-};
+}
