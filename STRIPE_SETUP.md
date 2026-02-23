@@ -43,7 +43,7 @@ This is the fastest way to get started. Perfect for small businesses and MVPs.
    
    Edit `src/config/products.ts`:
    ```typescript
-   stripePriceId: 'price_abc123', // Your actual Stripe Price ID
+   stripePriceId: 'price_XXXXXXXXXX', // Your actual Stripe Price ID
    ```
 
 4. **Deploy**
