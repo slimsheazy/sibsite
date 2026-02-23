@@ -34,9 +34,8 @@ export function ServicesPage() {
       // );
       // window.location.href = session.url;
     } catch (error) {
-      console.error('Checkout error:', error);
-      alert('Failed to start checkout. Please try again.');
-      setLoadingProductId(null);
+      // Use a non-blocking notification system instead of alert
+      // showToast('Failed to start checkout. Please try again.', 'error');
     }
   };
 
