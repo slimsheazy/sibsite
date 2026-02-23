@@ -5,10 +5,13 @@ import { Hero } from './components/Hero';
 import { ProductCatalog } from './components/ProductCatalog';
 import { AboutSection } from './components/AboutSection';
 import { Footer } from './components/Footer';
+import { ScrollProgress } from './components/ScrollProgress';
 import SEO from './components/SEO';
+import { AboutPage } from './pages/AboutPage';
+import { ServicesPage } from './pages/ServicesPage';
+import { ContactPage } from './pages/ContactPage';
 import { ArrowUp } from 'lucide-react';
 
-// This is your current homepage content, wrapped in a component
 function HomePage() {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
@@ -31,7 +34,6 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-sibyl-dark text-white selection:bg-white selection:text-black relative">
-      {/* Global Noise Texture Overlay - Subtle Grain for Film Look */}
       <div
         className="fixed inset-0 pointer-events-none z-[60] opacity-[0.07]"
         style={{
@@ -39,6 +41,7 @@ function HomePage() {
         }}
       ></div>
 
+      <ScrollProgress />
       <SEO 
         title="Sibylhaus | Intuitive Tarot Readings & Spiritual Guidance"
         description="No sugarcoating. Real tarot readings for real life. Get honest, intuitive guidance on love, career, and life decisions. Audio readings with personalized dashboards."
@@ -48,10 +51,8 @@ function HomePage() {
 
       <main>
         <Hero />
-
         <AboutSection />
 
-        {/* Marquee Break - Brutalist Style */}
         <div className="bg-white py-4 overflow-hidden whitespace-nowrap border-y border-black z-20 relative">
           <div className="animate-marquee inline-block text-black font-display font-bold text-6xl md:text-8xl uppercase tracking-tighter leading-none">
             <span className="mx-12">Book Your Reading</span>
@@ -90,7 +91,6 @@ function HomePage() {
 
       <Footer />
 
-      {/* Back to Top Button */}
       <button
         onClick={scrollToTop}
         className={`fixed bottom-8 right-8 z-50 bg-white text-black p-4 rounded-full shadow-lg transition-all duration-500 ease-in-out transform ${
@@ -104,58 +104,6 @@ function HomePage() {
   );
 }
 
-// Simple placeholder for /readings
-function ReadingsPage() {
-  return (
-    <div className="min-h-screen bg-sibyl-dark text-white selection:bg-white selection:text-black">
-      <SEO 
-        title="Tarot Readings | Sibylhaus"
-        description="Explore our range of intuitive tarot readings: single card snapshots, multi-card spreads, and in-depth audio readings for love, career, and life decisions."
-        url="https://sibylhaus.com/readings"
-      />
-      <Header />
-      <main className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">
-          Readings
-        </h1>
-        <p className="text-sibyl-gray text-lg">
-          This is where your readings overview will live. You can link to specific
-          spreads, explain your process, or list offerings here.
-        </p>
-      </main>
-      <Footer />
-    </div>
-  );
-}
-
-// Simple placeholder for /readings/sample
-function SampleReadingPage() {
-  return (
-    <div className="min-h-screen bg-sibyl-dark text-white selection:bg-white selection:text-black">
-      <SEO 
-        title="Sample Reading | Sibylhaus"
-        description="See an example of our detailed tarot readings with audio commentary and personalized insights. Experience the Sibylhaus approach to intuitive guidance."
-        url="https://sibylhaus.com/readings/sample"
-      />
-      <Header />
-      <main className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">
-          Sample Reading
-        </h1>
-        <p className="text-sibyl-gray text-lg mb-4">
-          This is a placeholder for your sample reading page at /readings/sample.
-        </p>
-        <p className="text-sibyl-gray text-lg">
-          You can move your existing sample HTML/audio/images into a proper React
-          layout here.
-        </p>
-      </main>
-      <Footer />
-    </div>
-  );
-}
-
-// 404 Not Found Page
 function NotFoundPage() {
   return (
     <div className="min-h-screen bg-sibyl-dark text-white selection:bg-white selection:text-black">
@@ -164,6 +112,7 @@ function NotFoundPage() {
         description="The page you're looking for doesn't exist. Return to Sibylhaus for intuitive tarot readings and spiritual guidance."
         url="https://sibylhaus.com/404"
       />
+      <ScrollProgress />
       <Header />
       <main className="max-w-4xl mx-auto px-6 py-16 text-center">
         <h1 className="text-6xl md:text-8xl font-display font-bold mb-6">
@@ -188,9 +137,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/readings" element={<ReadingsPage />} />
-      <Route path="/readings/sample" element={<SampleReadingPage />} />
-      {/* Catch-all route for 404 */}
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/services" element={<ServicesPage />} />
+      <Route path="/contact" element={<ContactPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
