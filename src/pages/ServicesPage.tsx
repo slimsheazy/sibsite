@@ -137,7 +137,7 @@ function ServiceCard({ service, delay }: { service: typeof services[0]; delay: n
 
   return (
     <div
-      ref={ref as any}
+      ref={ref}
       className={`bg-sibyl-accent border border-sibyl-gray p-8 transition-all duration-1000 hover:border-white group ${
         inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
       }`}
