@@ -5,7 +5,7 @@ import { Hero } from './components/Hero';
 import { ProductCatalog } from './components/ProductCatalog';
 import { AboutSection } from './components/AboutSection';
 import { Footer } from './components/Footer';
-import { SEO } from './components/SEO';
+import SEO from './components/SEO';
 import { ArrowUp } from 'lucide-react';
 
 // This is your current homepage content, wrapped in a component
