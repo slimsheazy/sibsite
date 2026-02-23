@@ -48,7 +48,7 @@ export function AboutPage() {
         
         {/* Section 1 */}
         <section 
-          ref={section1Ref as any}
+          ref={section1Ref}
           className={`transition-all duration-1000 ${
             section1InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
