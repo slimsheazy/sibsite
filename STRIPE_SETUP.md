@@ -33,10 +33,11 @@ This is the fastest way to get started. Perfect for small businesses and MVPs.
    Edit `src/services/stripe.ts`:
    ```typescript
    const paymentLinks: Record<string, string> = {
-     'price_abc123': 'https://buy.stripe.com/test_XXXXX', // Single Card
-     'price_def456': 'https://buy.stripe.com/test_YYYYY', // Love Reading
-     'price_ghi789': 'https://buy.stripe.com/test_ZZZZZ', // Career Reading
-     'price_jkl012': 'https://buy.stripe.com/test_WWWWW', // Life Path
+   const paymentLinks: Record<string, string> = {
+     'price_XXXXXXXXXX': 'https://buy.stripe.com/test_XXXXX', // Single Card
+     'price_YYYYYYYYYY': 'https://buy.stripe.com/test_YYYYY', // Love Reading
+     'price_ZZZZZZZZZZ': 'https://buy.stripe.com/test_ZZZZZ', // Career Reading
+     'price_WWWWWWWWWW': 'https://buy.stripe.com/test_WWWWW', // Life Path
    };
    ```
    
