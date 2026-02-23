@@ -18,7 +18,7 @@ export const products: Product[] = [
     description: 'Quick clarity for daily guidance. Perfect for when you need a snapshot of energy, insight, or direction.',
     price: 15,
     currency: 'USD',
-    stripePriceId: 'price_XXXXXXXXXX', // Replace with your Stripe Price ID
+    stripePriceId: 'price_XXXXXXXXXX', // IMPORTANT: Replace with your actual Stripe Price ID
     icon: 'zap',
     duration: '24-hour delivery',
     features: [
