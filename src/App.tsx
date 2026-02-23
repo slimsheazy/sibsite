@@ -104,57 +104,6 @@ function HomePage() {
   );
 }
 
-// Simple placeholder for /readings
-function ReadingsPage() {
-  return (
-    <div className="min-h-screen bg-sibyl-dark text-white selection:bg-white selection:text-black">
-      <SEO 
-        title="Tarot Readings | Sibylhaus"
-        description="Explore our range of intuitive tarot readings: single card snapshots, multi-card spreads, and in-depth audio readings for love, career, and life decisions."
-        url="https://sibylhaus.com/readings"
-      />
-      <Header />
-      <main className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">
-          Readings
-        </h1>
-        <p className="text-sibyl-gray text-lg">
-          This is where your readings overview will live. You can link to specific
-          spreads, explain your process, or list offerings here.
-        </p>
-      </main>
-      <Footer />
-    </div>
-  );
-}
-
-// Simple placeholder for /readings/sample
-function SampleReadingPage() {
-  return (
-    <div className="min-h-screen bg-sibyl-dark text-white selection:bg-white selection:text-black">
-      <SEO 
-        title="Sample Reading | Sibylhaus"
-        description="See an example of our detailed tarot readings with audio commentary and personalized insights. Experience the Sibylhaus approach to intuitive guidance."
-        url="https://sibylhaus.com/readings/sample"
-      />
-      <Header />
-      <main className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">
-          Sample Reading
-        </h1>
-        <p className="text-sibyl-gray text-lg mb-4">
-          This is a placeholder for your sample reading page at /readings/sample.
-        </p>
-        <p className="text-sibyl-gray text-lg">
-          You can move your existing sample HTML/audio/images into a proper React
-          layout here.
-        </p>
-      </main>
-      <Footer />
-    </div>
-  );
-}
-
 // 404 Not Found Page
 function NotFoundPage() {
   return (
@@ -188,8 +137,6 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/readings" element={<ReadingsPage />} />
-      <Route path="/readings/sample" element={<SampleReadingPage />} />
       {/* Catch-all route for 404 */}
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
