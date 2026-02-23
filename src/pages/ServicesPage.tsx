@@ -50,7 +50,6 @@ export function ServicesPage() {
       <ScrollProgress />
       <Header />
 
-      {/* Hero Section */}
       <section className="relative py-20 px-6 overflow-hidden">
         <div 
           className="absolute inset-0 opacity-10"
@@ -61,7 +60,7 @@ export function ServicesPage() {
         </div>
 
         <div 
-          ref={heroRef as any}
+          ref={heroRef}
           className={`relative z-10 max-w-4xl mx-auto text-center transition-all duration-1000 ${
             heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
@@ -75,15 +74,13 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid */}
       <main className="max-w-6xl mx-auto px-6 pb-20">
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <ServiceCard key={service.title} service={service} delay={index * 100} />
+            <ServiceCard key={index} service={service} delay={index * 100} />
           ))}
         </div>
 
-        {/* How It Works Section */}
         <section className="mt-24 pt-16 border-t border-sibyl-accent">
           <h2 className="text-4xl font-display font-bold mb-12 text-center">
             How It Works
@@ -113,7 +110,6 @@ export function ServicesPage() {
           </div>
         </section>
 
-        {/* CTA */}
         <section className="text-center mt-20">
           <a
             href="https://sibylhaus.etsy.com"

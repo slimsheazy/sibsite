@@ -12,7 +12,6 @@ import { ServicesPage } from './pages/ServicesPage';
 import { ContactPage } from './pages/ContactPage';
 import { ArrowUp } from 'lucide-react';
 
-// This is your current homepage content, wrapped in a component
 function HomePage() {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
@@ -35,7 +34,6 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-sibyl-dark text-white selection:bg-white selection:text-black relative">
-      {/* Global Noise Texture Overlay - Subtle Grain for Film Look */}
       <div
         className="fixed inset-0 pointer-events-none z-[60] opacity-[0.07]"
         style={{
@@ -53,10 +51,8 @@ function HomePage() {
 
       <main>
         <Hero />
-
         <AboutSection />
 
-        {/* Marquee Break - Brutalist Style */}
         <div className="bg-white py-4 overflow-hidden whitespace-nowrap border-y border-black z-20 relative">
           <div className="animate-marquee inline-block text-black font-display font-bold text-6xl md:text-8xl uppercase tracking-tighter leading-none">
             <span className="mx-12">Book Your Reading</span>
@@ -95,7 +91,6 @@ function HomePage() {
 
       <Footer />
 
-      {/* Back to Top Button */}
       <button
         onClick={scrollToTop}
         className={`fixed bottom-8 right-8 z-50 bg-white text-black p-4 rounded-full shadow-lg transition-all duration-500 ease-in-out transform ${
@@ -109,7 +104,6 @@ function HomePage() {
   );
 }
 
-// 404 Not Found Page
 function NotFoundPage() {
   return (
     <div className="min-h-screen bg-sibyl-dark text-white selection:bg-white selection:text-black">
@@ -146,7 +140,6 @@ function App() {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/contact" element={<ContactPage />} />
-      {/* Catch-all route for 404 */}
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

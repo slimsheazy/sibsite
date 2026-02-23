@@ -18,7 +18,6 @@ export function ContactPage() {
       <ScrollProgress />
       <Header />
 
-      {/* Hero with Parallax */}
       <section className="relative py-20 px-6 overflow-hidden">
         <div 
           className="absolute inset-0 opacity-5"
@@ -38,10 +37,8 @@ export function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Cards */}
       <main className="max-w-4xl mx-auto px-6 pb-20">
         <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {/* Etsy Card */}
           <a
             href="https://sibylhaus.etsy.com"
             target="_blank"
@@ -59,7 +56,6 @@ export function ContactPage() {
             </div>
           </a>
 
-          {/* Instagram Card */}
           <a
             href="https://instagram.com/sibylhaus.co"
             target="_blank"
@@ -78,7 +74,6 @@ export function ContactPage() {
           </a>
         </div>
 
-        {/* Info Section */}
         <section className="bg-sibyl-accent border border-sibyl-gray p-10 text-center">
           <h2 className="text-3xl font-display font-bold mb-4">Response Time</h2>
           <p className="text-sibyl-gray text-lg leading-relaxed max-w-2xl mx-auto">
@@ -88,7 +83,6 @@ export function ContactPage() {
           </p>
         </section>
 
-        {/* FAQ Teaser */}
         <section className="mt-16 text-center">
           <h2 className="text-4xl font-display font-bold mb-6">Common Questions</h2>
           <div className="space-y-6 text-left max-w-2xl mx-auto">

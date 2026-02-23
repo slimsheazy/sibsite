@@ -21,7 +21,6 @@ export function AboutPage() {
       <ScrollProgress />
       <Header />
 
-      {/* Hero Section with Parallax */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 opacity-20"
@@ -43,10 +42,8 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* Content Sections with Fade-in Animations */}
       <main className="max-w-4xl mx-auto px-6 py-16 space-y-24">
         
-        {/* Section 1 */}
         <section 
           ref={section1Ref}
           className={`transition-all duration-1000 ${
@@ -74,9 +71,8 @@ export function AboutPage() {
           </div>
         </section>
 
-        {/* Section 2 */}
         <section 
-          ref={section2Ref as any}
+          ref={section2Ref}
           className={`transition-all duration-1000 ${
             section2InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
@@ -102,9 +98,8 @@ export function AboutPage() {
           </div>
         </section>
 
-        {/* Section 3 */}
         <section 
-          ref={section3Ref as any}
+          ref={section3Ref}
           className={`transition-all duration-1000 ${
             section3InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
@@ -130,7 +125,6 @@ export function AboutPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
         <section className="text-center py-16 border-t border-sibyl-accent">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
             Ready to begin?

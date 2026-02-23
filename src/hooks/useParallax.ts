@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 export function useParallax(speed: number = 0.5) {
   const [offset, setOffset] = useState(0);
@@ -21,13 +21,20 @@ export function useScrollProgress() {
   useEffect(() => {
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight - windowHeight;
+      const documentHeight = Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+      ) - windowHeight;
       const scrolled = window.pageYOffset;
-      const progress = (scrolled / documentHeight) * 100;
-      setProgress(progress);
+      const progress = documentHeight > 0 ? (scrolled / documentHeight) * 100 : 0;
+      setProgress(Math.min(progress, 100));
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call once to set initial state
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -36,10 +43,9 @@ export function useScrollProgress() {
 
 export function useInView(threshold: number = 0.1) {
   const [isInView, setIsInView] = useState(false);
-  const [ref, setRef] = useState<HTMLElement | null>(null);
-
-  useEffect(() => {
-    if (!ref) return;
+  
+  const ref = useCallback((node: HTMLElement | null) => {
+    if (!node) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -48,9 +54,9 @@ export function useInView(threshold: number = 0.1) {
       { threshold }
     );
 
-    observer.observe(ref);
+    observer.observe(node);
     return () => observer.disconnect();
-  }, [ref, threshold]);
+  }, [threshold]);
 
-  return [setRef, isInView] as const;
+  return [ref, isInView] as const;
 }
