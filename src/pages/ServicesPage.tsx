@@ -1,44 +1,44 @@
+import { useState } from 'react';
 import SEO from '../components/SEO';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ScrollProgress } from '../components/ScrollProgress';
 import { useParallax, useInView } from '../hooks/useParallax';
-import { Zap, Heart, Briefcase, Compass } from 'lucide-react';
+import { Zap, Heart, Briefcase, Compass, ShoppingCart, Loader2 } from 'lucide-react';
+import { products } from '../config/products';
+import { redirectToStripeCheckout } from '../services/stripe';
 
-const services = [
-  {
-    icon: Zap,
-    title: 'Single Card Reading',
-    description: 'Quick clarity for daily guidance. Perfect for when you need a snapshot of energy, insight, or direction.',
-    duration: '24-hour delivery',
-    price: 'Starting at $15',
-  },
-  {
-    icon: Heart,
-    title: 'Love & Relationships',
-    description: 'Three-card spreads exploring dynamics, decisions, and the path forward in matters of the heart.',
-    duration: '48-hour delivery',
-    price: 'Starting at $35',
-  },
-  {
-    icon: Briefcase,
-    title: 'Career & Purpose',
-    description: 'Multi-card layouts for navigating professional crossroads, finding alignment, and making big moves.',
-    duration: '48-hour delivery',
-    price: 'Starting at $40',
-  },
-  {
-    icon: Compass,
-    title: 'Life Path Reading',
-    description: 'Deep-dive sessions with audio commentary and visual dashboards. For pivotal moments and major transitions.',
-    duration: '3-5 day delivery',
-    price: 'Starting at $75',
-  },
-];
+const iconMap = {
+  zap: Zap,
+  heart: Heart,
+  briefcase: Briefcase,
+  compass: Compass,
+};
 
 export function ServicesPage() {
   const parallaxOffset = useParallax(0.2);
   const [heroRef, heroInView] = useInView();
+  const [loadingProductId, setLoadingProductId] = useState<string | null>(null);
+
+  const handleCheckout = async (productId: string, stripePriceId: string) => {
+    setLoadingProductId(productId);
+    try {
+      // Option 1: Direct redirect to Stripe Payment Link (easiest, no backend)
+      redirectToStripeCheckout(stripePriceId);
+      
+      // Option 2: Create checkout session via backend (uncomment if you have backend)
+      // const session = await createCheckoutSession(
+      //   stripePriceId,
+      //   `${window.location.origin}/success`,
+      //   `${window.location.origin}/services`
+      // );
+      // window.location.href = session.url;
+    } catch (error) {
+      console.error('Checkout error:', error);
+      alert('Failed to start checkout. Please try again.');
+      setLoadingProductId(null);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-sibyl-dark text-white selection:bg-white selection:text-black">
@@ -76,8 +76,14 @@ export function ServicesPage() {
 
       <main className="max-w-6xl mx-auto px-6 pb-20">
         <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <ServiceCard key={index} service={service} delay={index * 100} />
+          {products.map((product, index) => (
+            <ServiceCard 
+              key={product.id} 
+              product={product} 
+              delay={index * 100}
+              onCheckout={() => handleCheckout(product.id, product.stripePriceId)}
+              isLoading={loadingProductId === product.id}
+            />
           ))}
         </div>
 
@@ -90,7 +96,7 @@ export function ServicesPage() {
               <div className="text-6xl font-display font-bold text-white mb-4">01</div>
               <h3 className="text-2xl font-display font-bold mb-3">Choose & Book</h3>
               <p className="text-sibyl-gray">
-                Select your reading type on Etsy and share your question or intention.
+                Select your reading type and complete secure checkout with Stripe.
               </p>
             </div>
             <div className="text-center">
@@ -110,15 +116,12 @@ export function ServicesPage() {
           </div>
         </section>
 
-        <section className="text-center mt-20">
-          <a
-            href="https://sibylhaus.etsy.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-white text-black px-12 py-5 font-display font-bold text-xl uppercase tracking-wider hover:bg-sibyl-gray hover:text-white border border-white transition-all transform hover:scale-105"
-          >
-            Book a Reading
-          </a>
+        <section className="mt-16 bg-sibyl-accent border border-sibyl-gray p-8 text-center">
+          <h3 className="text-2xl font-display font-bold mb-4">Secure Payment</h3>
+          <p className="text-sibyl-gray max-w-2xl mx-auto">
+            All payments are processed securely through Stripe. We never see or store your payment information.
+            You'll receive a confirmation email immediately after purchase.
+          </p>
         </section>
       </main>
 
@@ -127,9 +130,16 @@ export function ServicesPage() {
   );
 }
 
-function ServiceCard({ service, delay }: { service: typeof services[0]; delay: number }) {
+interface ServiceCardProps {
+  product: typeof products[0];
+  delay: number;
+  onCheckout: () => void;
+  isLoading: boolean;
+}
+
+function ServiceCard({ product, delay, onCheckout, isLoading }: ServiceCardProps) {
   const [ref, inView] = useInView();
-  const Icon = service.icon;
+  const Icon = iconMap[product.icon as keyof typeof iconMap];
 
   return (
     <div
@@ -140,12 +150,41 @@ function ServiceCard({ service, delay }: { service: typeof services[0]; delay: n
       style={{ transitionDelay: `${delay}ms` }}
     >
       <Icon className="w-12 h-12 mb-6 group-hover:scale-110 transition-transform" />
-      <h3 className="text-2xl font-display font-bold mb-4">{service.title}</h3>
-      <p className="text-sibyl-gray mb-6 leading-relaxed">{service.description}</p>
-      <div className="flex justify-between items-center pt-4 border-t border-sibyl-gray">
-        <span className="text-sm text-sibyl-gray">{service.duration}</span>
-        <span className="text-lg font-bold">{service.price}</span>
+      <h3 className="text-2xl font-display font-bold mb-4">{product.name}</h3>
+      <p className="text-sibyl-gray mb-6 leading-relaxed">{product.description}</p>
+      
+      <div className="mb-6">
+        <ul className="space-y-2 text-sm text-sibyl-gray">
+          {product.features.map((feature, idx) => (
+            <li key={idx} className="flex items-center gap-2">
+              <span className="text-white">✓</span> {feature}
+            </li>
+          ))}
+        </ul>
       </div>
+
+      <div className="flex justify-between items-center pt-4 border-t border-sibyl-gray mb-6">
+        <span className="text-sm text-sibyl-gray">{product.duration}</span>
+        <span className="text-2xl font-bold">${product.price}</span>
+      </div>
+
+      <button
+        onClick={onCheckout}
+        disabled={isLoading}
+        className="w-full bg-white text-black px-6 py-3 font-display font-bold uppercase tracking-wider hover:bg-sibyl-gray hover:text-white border border-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+      >
+        {isLoading ? (
+          <>
+            <Loader2 className="w-5 h-5 animate-spin" />
+            Processing...
+          </>
+        ) : (
+          <>
+            <ShoppingCart className="w-5 h-5" />
+            Book Now
+          </>
+        )}
+      </button>
     </div>
   );
 }
