@@ -108,8 +108,9 @@ This gives you more control but requires a backend server.
        });
 
        res.status(200).json({ id: session.id, url: session.url });
-     } catch (error: any) {
-       res.status(500).json({ error: error.message });
+     } catch (error) {
+       console.error('Stripe checkout session creation failed:', error);
+       res.status(500).json({ error: (error as Error).message });
      }
    }
    ```
