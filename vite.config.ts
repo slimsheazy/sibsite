@@ -1,6 +1,7 @@
 // vite.config.ts
 import { defineConfig, loadEnv, type UserConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 
 export default defineConfig(({ mode }): UserConfig => {
   // Load all env vars for this mode from .env, .env.local, etc.
@@ -8,6 +9,13 @@ export default defineConfig(({ mode }): UserConfig => {
 
   return {
     plugins: [react()],
+
+    // Path aliases for cleaner imports
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src')
+      }
+    },
 
     // Expose API key at build time as process.env.API_KEY in your code
     define: {
@@ -18,7 +26,7 @@ export default defineConfig(({ mode }): UserConfig => {
     // For GitHub Pages without a custom domain, this would be '/sibsite/'
     base: '/',
 
-    // 👇 NEW: Build optimization options
+    // Build optimization options
     build: {
       outDir: 'dist',
       sourcemap: mode === 'development',
@@ -26,6 +34,7 @@ export default defineConfig(({ mode }): UserConfig => {
         output: {
           manualChunks: {
             'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+            'icons': ['lucide-react'],
           }
         }
       }

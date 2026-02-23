@@ -39,7 +39,11 @@ function HomePage() {
         }}
       ></div>
 
-      <SEO />
+      <SEO 
+        title="Sibylhaus | Intuitive Tarot Readings & Spiritual Guidance"
+        description="No sugarcoating. Real tarot readings for real life. Get honest, intuitive guidance on love, career, and life decisions. Audio readings with personalized dashboards."
+        url="https://sibylhaus.com"
+      />
       <Header />
 
       <main>
@@ -104,7 +108,11 @@ function HomePage() {
 function ReadingsPage() {
   return (
     <div className="min-h-screen bg-sibyl-dark text-white selection:bg-white selection:text-black">
-      <SEO />
+      <SEO 
+        title="Tarot Readings | Sibylhaus"
+        description="Explore our range of intuitive tarot readings: single card snapshots, multi-card spreads, and in-depth audio readings for love, career, and life decisions."
+        url="https://sibylhaus.com/readings"
+      />
       <Header />
       <main className="max-w-4xl mx-auto px-6 py-16">
         <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">
@@ -124,7 +132,11 @@ function ReadingsPage() {
 function SampleReadingPage() {
   return (
     <div className="min-h-screen bg-sibyl-dark text-white selection:bg-white selection:text-black">
-      <SEO />
+      <SEO 
+        title="Sample Reading | Sibylhaus"
+        description="See an example of our detailed tarot readings with audio commentary and personalized insights. Experience the Sibylhaus approach to intuitive guidance."
+        url="https://sibylhaus.com/readings/sample"
+      />
       <Header />
       <main className="max-w-4xl mx-auto px-6 py-16">
         <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">
@@ -143,12 +155,43 @@ function SampleReadingPage() {
   );
 }
 
+// 404 Not Found Page
+function NotFoundPage() {
+  return (
+    <div className="min-h-screen bg-sibyl-dark text-white selection:bg-white selection:text-black">
+      <SEO 
+        title="Page Not Found | Sibylhaus"
+        description="The page you're looking for doesn't exist. Return to Sibylhaus for intuitive tarot readings and spiritual guidance."
+        url="https://sibylhaus.com/404"
+      />
+      <Header />
+      <main className="max-w-4xl mx-auto px-6 py-16 text-center">
+        <h1 className="text-6xl md:text-8xl font-display font-bold mb-6">
+          404
+        </h1>
+        <p className="text-sibyl-gray text-2xl mb-8">
+          This page doesn't exist in the cards.
+        </p>
+        <a 
+          href="/" 
+          className="inline-block bg-white text-black px-8 py-4 font-display font-bold text-lg uppercase tracking-wider hover:bg-sibyl-gray hover:text-white border border-white transition-colors"
+        >
+          Return Home
+        </a>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
 function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/readings" element={<ReadingsPage />} />
       <Route path="/readings/sample" element={<SampleReadingPage />} />
+      {/* Catch-all route for 404 */}
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }
