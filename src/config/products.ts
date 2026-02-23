@@ -68,7 +68,7 @@ export const products: Product[] = [
     description: 'Deep-dive sessions with audio commentary and visual dashboards. For pivotal moments and major transitions.',
     price: 75,
     currency: 'USD',
-    stripePriceId: 'price_XXXXXXXXXX', // Replace with your Stripe Price ID
+    stripePriceId: 'price_XXXXXXXXXX', // IMPORTANT: Replace with your actual Stripe Price ID
     icon: 'compass',
     duration: '3-5 day delivery',
     features: [
