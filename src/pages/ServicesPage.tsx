@@ -60,7 +60,7 @@ export function ServicesPage() {
         </div>
 
         <div 
-          ref={heroRef as any}
+          ref={heroRef}
           className={`relative z-10 max-w-4xl mx-auto text-center transition-all duration-1000 ${
             heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
@@ -133,7 +133,7 @@ function ServiceCard({ service, delay }: { service: typeof services[0]; delay: n
 
   return (
     <div
-      ref={ref as any}
+      ref={ref}
       className={`bg-sibyl-accent border border-sibyl-gray p-8 transition-all duration-1000 hover:border-white group ${
         inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
       }`}
