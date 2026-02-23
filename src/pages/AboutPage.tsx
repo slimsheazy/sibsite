@@ -45,7 +45,7 @@ export function AboutPage() {
       <main className="max-w-4xl mx-auto px-6 py-16 space-y-24">
         
         <section 
-          ref={section1Ref as any}
+          ref={section1Ref}
           className={`transition-all duration-1000 ${
             section1InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
@@ -72,7 +72,7 @@ export function AboutPage() {
         </section>
 
         <section 
-          ref={section2Ref as any}
+          ref={section2Ref}
           className={`transition-all duration-1000 ${
             section2InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
@@ -99,7 +99,7 @@ export function AboutPage() {
         </section>
 
         <section 
-          ref={section3Ref as any}
+          ref={section3Ref}
           className={`transition-all duration-1000 ${
             section3InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
