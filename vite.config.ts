@@ -17,5 +17,18 @@ export default defineConfig(({ mode }): UserConfig => {
     // Use '/' for custom domains (e.g. sibylhaus.com)
     // For GitHub Pages without a custom domain, this would be '/sibsite/'
     base: '/',
+
+    // 👇 NEW: Build optimization options
+    build: {
+      outDir: 'dist',
+      sourcemap: mode === 'development',
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          }
+        }
+      }
+    }
   }
 })
