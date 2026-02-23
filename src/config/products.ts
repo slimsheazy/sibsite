@@ -51,7 +51,7 @@ export const products: Product[] = [
     description: 'Multi-card layouts for navigating professional crossroads, finding alignment, and making big moves.',
     price: 40,
     currency: 'USD',
-    stripePriceId: 'price_XXXXXXXXXX', // Replace with your Stripe Price ID
+    stripePriceId: 'price_XXXXXXXXXX', // IMPORTANT: Replace with your actual Stripe Price ID
     icon: 'briefcase',
     duration: '48-hour delivery',
     features: [
