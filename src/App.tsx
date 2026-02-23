@@ -10,6 +10,8 @@ import SEO from './components/SEO';
 import { AboutPage } from './pages/AboutPage';
 import { ServicesPage } from './pages/ServicesPage';
 import { ContactPage } from './pages/ContactPage';
+import { SuccessPage } from './pages/SuccessPage';
+import { CancelPage } from './pages/CancelPage';
 import { ArrowUp } from 'lucide-react';
 
 function HomePage() {
@@ -140,6 +142,8 @@ function App() {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/success" element={<SuccessPage />} />
+      <Route path="/cancel" element={<CancelPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
