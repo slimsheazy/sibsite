@@ -34,7 +34,7 @@ export const products: Product[] = [
     description: 'Three-card spreads exploring dynamics, decisions, and the path forward in matters of the heart.',
     price: 35,
     currency: 'USD',
-    stripePriceId: 'price_XXXXXXXXXX', // Replace with your Stripe Price ID
+    stripePriceId: 'price_XXXXXXXXXX', // IMPORTANT: Replace with your actual Stripe Price ID
     icon: 'heart',
     duration: '48-hour delivery',
     features: [
