@@ -5,7 +5,11 @@ import { Hero } from './components/Hero';
 import { ProductCatalog } from './components/ProductCatalog';
 import { AboutSection } from './components/AboutSection';
 import { Footer } from './components/Footer';
+import { ScrollProgress } from './components/ScrollProgress';
 import SEO from './components/SEO';
+import { AboutPage } from './pages/AboutPage';
+import { ServicesPage } from './pages/ServicesPage';
+import { ContactPage } from './pages/ContactPage';
 import { ArrowUp } from 'lucide-react';
 
 // This is your current homepage content, wrapped in a component
@@ -39,6 +43,7 @@ function HomePage() {
         }}
       ></div>
 
+      <ScrollProgress />
       <SEO 
         title="Sibylhaus | Intuitive Tarot Readings & Spiritual Guidance"
         description="No sugarcoating. Real tarot readings for real life. Get honest, intuitive guidance on love, career, and life decisions. Audio readings with personalized dashboards."
@@ -113,6 +118,7 @@ function NotFoundPage() {
         description="The page you're looking for doesn't exist. Return to Sibylhaus for intuitive tarot readings and spiritual guidance."
         url="https://sibylhaus.com/404"
       />
+      <ScrollProgress />
       <Header />
       <main className="max-w-4xl mx-auto px-6 py-16 text-center">
         <h1 className="text-6xl md:text-8xl font-display font-bold mb-6">
@@ -137,6 +143,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/services" element={<ServicesPage />} />
+      <Route path="/contact" element={<ContactPage />} />
       {/* Catch-all route for 404 */}
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
