@@ -79,7 +79,7 @@ export function ServicesPage() {
       <main className="max-w-6xl mx-auto px-6 pb-20">
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <ServiceCard key={index} service={service} delay={index * 100} />
+            <ServiceCard key={service.title} service={service} delay={index * 100} />
           ))}
         </div>
 
