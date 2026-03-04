@@ -4,8 +4,15 @@ export function useParallax(speed: number = 0.5) {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setOffset(window.pageYOffset * speed);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setOffset(window.pageYOffset * speed);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
